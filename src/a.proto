@@ -8,10 +8,17 @@ message Address {
     string country = 4;
 }
 
-message PhoneType {
-    WORK =1;
+enum PhoneType {
+    PHONE_TYPE_UNSPECIFIED = 0;
+    WORK = 1;
     MOBILE = 2;
-    HOME =3;
+    HOME = 3;
+}
+
+enum Sex {
+    SEX_UNSPECIFIED = 0;
+    M = 1;
+    F = 2;
 }
 
 message PhoneNumber {
@@ -20,18 +27,33 @@ message PhoneNumber {
 }
 
 message User {
-    string name = 1;
+    string username = 1;
     int32 age = 2;
-    string sex = 3;
+    Sex sex = 3;
     Address addr = 4;
-    repeated string emails = 4;
-    repeated PhoneNumber phone_numbers = 5;
+    repeated string emails = 5;
+    repeated PhoneNumber phone_numbers = 6;
+    string fullname = 7;
+}
+
+message UsernameRequest {
+    string username = 1;
+}
+
+message UpdateUserRequest {
+    string username = 1;
+    User user = 2;
+}
+
+message DeleteUserResponse {
+    bool success = 1;
+    string message = 2;
 }
 
 service UserManagementService {
     // adding rpcs here
     rpc AddUser( User ) returns ( User ); 
-    rpc getUserByName( string ) returns (User);
-    rpc deleteUserByName( string ) returns ( User );
-    rpc updateUserByName(string) returns (User);
+    rpc GetUserByUsername( UsernameRequest ) returns (User);
+    rpc DeleteUserByUsername( UsernameRequest ) returns ( DeleteUserResponse );
+    rpc UpdateUserByUsername(UpdateUserRequest) returns (User);
 }
