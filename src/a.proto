@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+//message body
+message Address {
+    string flat_no = 1;
+    string city = 2;
+    string state = 3;
+    string country = 4;
+}
+
+message PhoneType {
+    WORK =1;
+    MOBILE = 2;
+    HOME =3;
+}
+
+message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+}
+
+message User {
+    string name = 1;
+    int32 age = 2;
+    string sex = 3;
+    Address addr = 4;
+    repeated string emails = 4;
+    repeated PhoneNumber phone_numbers = 5;
+}
+
+service UserManagementService {
+    // adding rpcs here
+    rpc AddUser( User ) returns ( User ); 
+    rpc getUserByName( string ) returns (User);
+    rpc deleteUserByName( string ) returns ( User );
+    rpc updateUserByName(string) returns (User);
+}
