@@ -126,5 +126,5 @@ Request Example:
 Notes
 
 - All RPCs can be tested using a gRPC client, such as gRPCurl or Postman with the gRPC plugin.
-
+- Select the gRPC request option in Postman and import the `.proto` file for get the methods.
 - The internal data store is a simple in-memory object, which means data will not persist after the server is restarted. For a production environment, this would be replaced by a database like MongoDB or PostgreSQL.
