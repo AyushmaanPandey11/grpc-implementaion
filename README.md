@@ -50,25 +50,25 @@ Adds a new user to the system.
 
 Request Example:
 
-    ```
-        {
-            "username": "newuser",
-            "fullname": "New User",
-            "age": 30,
-            "sex": "M",
-            "addr": {
-                "flat_no": "C-303",
-                "city": "Pune",
-                "state": "Maharashtra",
-                "country": "India"
-            },
-            "emails": ["newuser@example.com"],
-            "phone_numbers": [{
-                "number": "+911234567890",
-                "type": "MOBILE"
-                }]
-        }
-    ```
+```
+      {
+          "username": "newuser",
+          "fullname": "New User",
+          "age": 30,
+          "sex": "M",
+          "addr": {
+              "flat_no": "C-303",
+              "city": "Pune",
+              "state": "Maharashtra",
+              "country": "India"
+          },
+          "emails": ["newuser@example.com"],
+          "phone_numbers": [{
+              "number": "+911234567890",
+              "type": "MOBILE"
+              }]
+      }
+```
 
 2. GetUserByUsername(UsernameRequest) returns (User)
 
