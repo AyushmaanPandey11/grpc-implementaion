@@ -16,6 +16,7 @@ const protoDefinition = grpc.loadPackageDefinition(
 const users: UserType = {
   ayush123: {
     fullname: "ayushmaan",
+    username: "ayush123",
     age: 25,
     sex: "M",
     addr: {
@@ -25,12 +26,13 @@ const users: UserType = {
       country: "India",
     },
     emails: ["ayush123@example.com", "ayush.work@example.com"],
-    phoneNumber: [
+    phoneNumbers: [
       { number: "+919876543210", type: "MOBILE" },
       { number: "+912233445566", type: "WORK" },
     ],
   },
   srujan456: {
+    username: "srujan456",
     fullname: "srujan",
     age: 30,
     sex: "F",
@@ -41,7 +43,7 @@ const users: UserType = {
       country: "India",
     },
     emails: ["srujan456@example.com"],
-    phoneNumber: [
+    phoneNumbers: [
       { number: "+919123456789", type: "MOBILE" },
       { number: "+918011223344", type: "HOME" },
     ],
@@ -53,6 +55,7 @@ const serviceHandler: UserManagementServiceHandlers = {
     const { addr, age, emails, fullname, phoneNumbers, sex, username } =
       call.request;
     const newUser: User = {
+      username: username,
       fullname: fullname,
       age: age,
       addr: {
@@ -62,7 +65,7 @@ const serviceHandler: UserManagementServiceHandlers = {
         state: addr?.state,
       },
       emails: emails,
-      phoneNumber: phoneNumbers,
+      phoneNumbers: phoneNumbers,
       sex: sex === "F" ? "F" : "M",
     };
     users[username] = newUser;
@@ -138,6 +141,7 @@ const serviceHandler: UserManagementServiceHandlers = {
       return;
     }
     const updatedUser: User = {
+      username: user.username,
       fullname: user.fullname,
       age: user.age,
       sex: user.sex === "F" ? "F" : "M",
@@ -148,7 +152,7 @@ const serviceHandler: UserManagementServiceHandlers = {
         country: user.addr?.country,
       },
       emails: user.emails,
-      phoneNumber: user.phoneNumbers,
+      phoneNumbers: user.phoneNumbers,
       // .filter((pn) => pn.type !== "PHONE_TYPE_UNSPECIFIED")
       // .map((pn) => ({
       //   number: pn.number,

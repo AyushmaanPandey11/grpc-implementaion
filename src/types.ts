@@ -11,12 +11,13 @@ interface PhoneNumber {
 }
 
 export interface User {
+  username: string;
   fullname: string;
   age: number;
   sex?: "M" | "F";
   addr: Address;
   emails: string[];
-  phoneNumber: PhoneNumber[];
+  phoneNumbers: PhoneNumber[];
 }
 
 export interface UserType {
