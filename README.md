@@ -17,22 +17,22 @@
 ## Setup Instructions
 
 1. Clone the Repository:
-   git clone https://github.com/AyushmaanPandey11/grpc-implementaion.git
-   cd grpc impl
+
+   1. `git clone https://github.com/AyushmaanPandey11/grpc-implementaion.git`
+   2. `cd grpc impl`
 
 2. Install Dependencies:
    npm install
 
 3. Generate Proto file Types:
 
-   1. cd src
-   2. run this script in src directory
-      `../node_modules/.bin/proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=generated ./a.proto    `
+   1. `cd src`
+   2. `../node_modules/.bin/proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=generated ./a.proto    `
    3. This will generates types in the src directory.
 
 4. Start the gRPC Server
    Run the server using the command:
-   npm run dev
+   `npm run dev`
 
 5. The server will start and listen on 0.0.0.0:5051.
 
@@ -57,16 +57,16 @@ Request Example:
             "age": 30,
             "sex": "M",
             "addr": {
-            "flat_no": "C-303",
-            "city": "Pune",
-            "state": "Maharashtra",
-            "country": "India"
+                "flat_no": "C-303",
+                "city": "Pune",
+                "state": "Maharashtra",
+                "country": "India"
             },
             "emails": ["newuser@example.com"],
             "phone_numbers": [{
-            "number": "+911234567890",
-            "type": "MOBILE"
-            }]
+                "number": "+911234567890",
+                "type": "MOBILE"
+                }]
         }
     ```
 
@@ -78,7 +78,7 @@ Request Example:
 
   ```
       {
-      "username": "ayush123"
+        "username": "ayush123"
       }
   ```
 
@@ -119,7 +119,7 @@ Request Example:
 
   ```
       {
-      "username": "srujan456"
+        "username": "srujan456"
       }
   ```
 
